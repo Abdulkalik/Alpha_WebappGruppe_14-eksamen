@@ -72,7 +72,7 @@ export function Recipes() {
     try {
       localStorage.setItem(FAV_KEY, JSON.stringify(items));
     } catch (err) {
-      console.error("Kunne ikke lagre favoritter:", err);
+      console.error("Kunne desvere ikke lagre favoritter:", err);
     }
   };
 
@@ -81,11 +81,11 @@ export function Recipes() {
     let updated: Meal[];
 
     if (exists) {
-      // fjern fra favoritter
+      // den fjerner fra favoritter
       updated = favorites.filter((m) => m.idMeal !== meal.idMeal);
       saveFavorites(updated);
     } else {
-      // legg til i favoritter og gå til /favorites
+      // den legger til i favoritter og gå til /favorites
       updated = [...favorites, meal];
       saveFavorites(updated);
       window.location.href = "/favorites";
@@ -163,20 +163,20 @@ export function Recipes() {
   return (
     <div className="min-h-screen bg-orange-50 p-8">
       <h1 className="text-4xl font-bold text-center text-orange-700 mb-2">
-        🍽️ MatBuddy Oppskrifter
+         MatBuddy Oppskrifter
       </h1>
       <p className="text-center text-sm mb-6">
         <a
           href="/home"
           className="underline text-gray-700 hover:text-gray-900 mr-4"
         >
-          ⬅ Til forsiden
+           Til forsiden
         </a>
         <a
           href="/favorites"
           className="underline text-orange-600 hover:text-orange-800 font-semibold"
         >
-          ⭐ Se favoritter
+           Se favoritter
         </a>
       </p>
 
@@ -200,7 +200,7 @@ export function Recipes() {
         <p className="text-center text-lg">Laster oppskrifter...</p>
       ) : meals.length === 0 ? (
         <p className="text-center text-lg text-gray-600">
-          Ingen oppskrifter funnet 😕
+          Ingen oppskrifter funnet 
         </p>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -242,7 +242,7 @@ export function Recipes() {
                       fav ? "Fjern fra favoritter" : "Lagre som favoritt"
                     }
                   >
-                    {fav ? "★" : "☆"}
+                    {fav ? "Favoritt ★" : "Lagre ☆"}
                   </button>
                 </div>
 
